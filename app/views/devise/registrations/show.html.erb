@@ -1,0 +1,46 @@
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Perfil de <%= @user.name %></h2>  
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Trainers Section ======= -->
+    <section id="trainers" class="trainers">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <% if @user.photo.attached? %>
+                <%= image_tag @user.photo, class: "img-fluid" %>
+              <% else %>
+                <p>No hay imagen de perfil cargada.</p>
+              <% end %>  
+              <div class="member-content">
+                <h4><%= @user.name %></h4>
+                <span><%= @user.birthdate %> años</span>
+                <span><%= @user.email %></span>
+                <p>
+                  <%= @user.relevant %>
+                </p>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+                <div class="text-center">
+                <% if current_user == @user %>
+                <%= link_to "Editar perfil", edit_user_registration_path, class: "btn btn-primary" %>
+                <% end %>
+                </div> 
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+
+      </div>
+    </section><!-- End Trainers Section -->

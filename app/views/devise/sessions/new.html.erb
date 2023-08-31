@@ -1,0 +1,40 @@
+
+<!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Iniciar Sesión</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+        <div class="row"> 
+          <div class="col-lg-8 mx-auto mt-lg-0">
+            <br>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="row">
+
+                <div class="col-md-6 form-group">                  
+                  <%= f.label "Mail", class:"form-label" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <%= f.label "Contraseña", class:"form-label" %>
+                  <%= f.password_field :password, autocomplete: "current-password", class:'form-control' %>
+                </div>
+              </div>
+              <% if devise_mapping.rememberable? %>
+                <div class="field">
+                  <%= f.check_box :remember_me, class:"form-check-input me-2" %>
+                  <%= f.label "Recordar",class:"form-check-label" %>
+                </div>
+              <% end %>
+                <div class="text-center">
+                  <%= f.submit "Iniciar sesión", class:'get-started-btn' %>
+                </div>
+              <% end %>    
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->

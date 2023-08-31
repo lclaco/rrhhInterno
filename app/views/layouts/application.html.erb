@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RrhhInterno</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <%= stylesheet_link_tag "animate.min" %>
+  <%= stylesheet_link_tag "aos" %> 
+  <%= stylesheet_link_tag "bootstrap.min" %>
+  <%= stylesheet_link_tag "bootstrap-icons" %>
+  <%= stylesheet_link_tag "boxicons.min" %>
+  <%= stylesheet_link_tag "remixicon" %>
+  <%= stylesheet_link_tag "swiper-bundle.min" %>  
+
+  <!-- Template Main CSS File -->
+  <%= stylesheet_link_tag "style" %>
+
+  <!-- =======================================================
+  * Template Name: Mentor
+  * Updated: Jul 27 2023 with Bootstrap v5.3.1
+  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+
+  <body>
+
+  <%= render 'shared/navbar' %>
+
+  <%
+=begin%>
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Learning Today,<br>Leading Tomorrow</h1>
+      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <a href="courses.html" class="btn-get-started">Get Started</a>
+    </div>
+  </section><!-- End Hero --> 
+<%
+=end%>
+
+  <main id="main">
+
+    <%= yield %>
+
+  </main><!-- End #main -->
+
+  <%= render 'footer/footer' %>  
+
+    <%
+=begin%>
+ <div id="preloader"></div> 
+<%
+=end%>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->  
+  <%= javascript_include_tag 'purecounter_vanilla' %>    
+  <%= javascript_include_tag "aos" %>
+  <%= javascript_include_tag 'bootstrap.bundle.min' %>
+  <%= javascript_include_tag "swiper-bundle.min" %>
+  <%= javascript_include_tag "validate" %>
+
+  <!-- Template Main JS File -->
+  <%= javascript_include_tag "main" %> 
+  </body>
+</html>

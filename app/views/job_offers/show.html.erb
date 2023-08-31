@@ -1,0 +1,20 @@
+<h1><%= @job_offer.title %></h1>
+<p><%= @job_offer.description %></p>
+
+<% if current_user.normal? %>
+  <%= button_to "Postular", job_offer_applications_path(@job_offer), method: :post, data: { confirm: "¿Estás seguro de postularte a esta oferta laboral?" }, class: "btn btn-primary" %>
+<% end %>
+
+<% if @job_offer.applications.any? %>
+  <h2>Postulantes</h2>
+  <ul>
+    <% @job_offer.applications.each do |application| %>
+      <li><%= application.user.email %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No hay postulantes para esta oferta laboral.</p>
+<% end %>
+
+<%= link_to "Volver a la lista de ofertas", job_offers_path, class: "btn btn-secondary" %>
+

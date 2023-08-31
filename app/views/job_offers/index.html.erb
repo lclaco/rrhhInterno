@@ -1,0 +1,51 @@
+<br>
+<h1>Ofertas de trabajo</h1>
+
+<!-- ======= Popular Courses Section ======= -->
+    <section id="popular-courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h1>Ofertas de trabajo</h1>
+        </div>
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <% @job_offers.each do |job_offer| %>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+              
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4><%= job_offer.title %></h4>
+                  <p class="price">$<%= job_offer.salary %></p>
+                </div>
+
+                <h3><a href="course-details.html"><%= job_offer.title %></a></h3>
+                <p><%= job_offer.description %></p>
+                
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">                    
+                    <%= image_tag 'trainer-1.jpg', class:"img-fluid" %>
+                    <span>Publicado por esteban</span>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <i class="bx bx-user"></i>&nbsp;50
+                    &nbsp;&nbsp;
+                    <i class="bx bx-heart"></i>&nbsp;65
+                  </div>
+                </div>
+                <% if current_user.esteban? %>
+                  <%= link_to "Editar", edit_job_offer_path(job_offer), class: "btn btn-primary" %>
+                <% end %>
+                  <% if current_user.normal? %>
+                  <div class="text-center">
+                    <%= link_to "Postular", new_job_offer_application_path(job_offer), class: "btn btn-success btn-sm" %>
+                  </div>  
+                  <% end %>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+          <% end %>
+        </div>
+      </div>
+    </section><!-- End Popular Courses Section -->

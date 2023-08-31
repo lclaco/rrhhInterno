@@ -1,0 +1,73 @@
+<br>
+<h1>Postulantes de la oferta laboral</h1>
+
+<!-- ======= Popular Courses Section ======= -->
+    <section id="popular-courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h1>Lista de Postulaciones</h1>
+        </div>
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <% if @applications.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Título de la oferta</th>        
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @applications.each do |application| %>
+        <tr>
+          <td><%= application.job_offer.title %></td>          
+          <td>
+            <%= link_to "Eliminar postulación", job_offer_application_path(application.job_offer, application), method: :delete, data: { confirm: "¿Estás seguro de eliminar esta postulación?" }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No has realizado postulaciones.</p>
+<% end %>
+
+<% if current_user.esteban? %>
+  <h2>Postulantes</h2>
+
+  <% if @applicants.any? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Título de la oferta</th>
+          <th>Postulante</th>
+          <th>Mail</th>
+          <th>Fecha de nacimiento</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @applicants.each do |applicant| %>
+          <tr>
+            <td><%= applicant.job_offer.title %></td>
+            <td><%= applicant.user.name %></td>
+            <td><%= applicant.user.email %></td>
+            <td><%= applicant.user.birthdate %></td>
+            <td>
+            <%= link_to "Eliminar postulación", job_offer_application_path(applicant.job_offer, applicant), method: :delete, data: { confirm: "¿Estás seguro de eliminar esta postulación?" }, class: "btn btn-danger" %>
+
+          </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No hay postulantes para ninguna oferta laboral.</p>
+  <% end %>
+<% end %>
+        </div>
+      </div>
+    </section><!-- End Popular Courses Section -->
+
+<%= link_to "Volver a la oferta laboral", job_offers_path, class: "btn btn-secondary" %>

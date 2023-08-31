@@ -1,0 +1,6 @@
+<h1>Postular a la oferta laboral: <%= @job_offer.title %></h1>
+
+<%= form_with(model: @application, url: job_offer_applications_path(@job_offer), method: :post) do |form| %>
+  <!-- Aquí colocamos los campos del formulario de postulación -->
+  <%= form.submit "Postular", class: "btn btn-primary" %>
+<% end %>
