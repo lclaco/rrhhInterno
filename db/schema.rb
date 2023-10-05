@@ -43,18 +43,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_070001) do
   end
 
   create_table "applications", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "job_offers_id"
+    t.bigint "user_id"
+    t.bigint "job_offer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "applicant_id"
-    t.bigint "job_offer_id"
-    t.bigint "user_id", null: false
     t.index ["applicant_id"], name: "index_applications_on_applicant_id"
     t.index ["job_offer_id"], name: "index_applications_on_job_offer_id"
-    t.index ["job_offers_id"], name: "index_applications_on_job_offers_id"
     t.index ["user_id"], name: "index_applications_on_user_id"
-    t.index ["users_id"], name: "index_applications_on_users_id"
   end
 
   create_table "job_offers", force: :cascade do |t|
